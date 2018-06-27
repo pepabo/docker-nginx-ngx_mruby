@@ -28,7 +28,6 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
     --with-compat \
     --add-dynamic-module=../ngx_mruby \
     --add-dynamic-module=../ngx_devel_kit-0.3.0 \
-    --add-dynamic-module=../ngx_mruby/dependence/ngx_devel_kit \
  && make modules \
  && cp -p ./objs/*.so /etc/nginx/modules/ \
  \
