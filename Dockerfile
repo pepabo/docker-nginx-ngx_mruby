@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
     zlib1g-dev \
  \
  && cd /usr/local/src \
- && git clone --branch v$NGX_MRUBY_VERSION --depth 1 https://github.com/matsumoto-r/ngx_mruby.git \
+ && git clone --branch v$NGX_MRUBY_VERSION --depth 1 https://github.com/matsumotory/ngx_mruby.git \
  && curl -s -OL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && tar -xf nginx-$NGINX_VERSION.tar.gz \
  \
  && cd /usr/local/src/ngx_mruby \
