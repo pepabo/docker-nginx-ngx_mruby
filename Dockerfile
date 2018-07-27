@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
  && cd /usr/local/src \
  && git clone --branch v$NGX_MRUBY_VERSION --depth 1 https://github.com/matsumoto-r/ngx_mruby.git \
  && curl -s -OL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz && tar -xf nginx-$NGINX_VERSION.tar.gz \
- && curl -s -OL https://github.com/simplresty/ngx_devel_kit/archive/v0.3.0.tar.gz && tar -xf v0.3.0.tar.gz \
  \
  && cd /usr/local/src/ngx_mruby \
  && ./configure --enable-dynamic-module --with-ngx-src-root=../nginx-$NGINX_VERSION \
@@ -27,7 +26,7 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
  && ./configure \
     --with-compat \
     --add-dynamic-module=../ngx_mruby \
-    --add-dynamic-module=../ngx_devel_kit-0.3.0 \
+    --add-dynamic-module=../ngx_mruby/dependence/ngx_devel_kit \
  && make modules \
  && cp -p ./objs/*.so /etc/nginx/modules/ \
  \
