@@ -1,6 +1,6 @@
-FROM nginx:1.15.0
+FROM nginx:1.15.2
 
-ENV NGINX_VERSION=1.15.0
+ENV NGINX_VERSION=1.15.2
 ENV NGX_MRUBY_VERSION=2.1.0
 
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
