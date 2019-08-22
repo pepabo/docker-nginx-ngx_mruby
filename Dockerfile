@@ -27,21 +27,9 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
     --with-compat \
     --add-dynamic-module=../ngx_mruby \
     --add-dynamic-module=../ngx_mruby/dependence/ngx_devel_kit \
- && make modules \
- && cp -p ./objs/*.so /etc/nginx/modules/ \
- \
- && cd / \
- && rm -rf /usr/local/src/* \
- && apt-get remove --purge --auto-remove -y \
-    git \
-    curl \
-    build-essential \
-    rake \
-    bison \
-    libssl-dev \
-    libpcre3-dev \
-    zlib1g-dev \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+ && make modules
 
+FROM nginx:1.17.3
+
+COPY --from=0 /usr/local/src/nginx-$NGINX_VERSION/objs/*.so /etc/nginx/modules/
 COPY nginx.conf /etc/nginx/nginx.conf
