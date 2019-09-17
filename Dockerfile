@@ -1,7 +1,7 @@
 FROM nginx:1.17.3
 
 ENV NGINX_VERSION=1.17.3
-ENV NGX_MRUBY_VERSION=2.1.5
+ENV NGX_MRUBY_VERSION=2.1.6
 
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
     git \
