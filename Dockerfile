@@ -1,6 +1,6 @@
-FROM nginx:1.17.6
+FROM nginx:1.17.7
 
-ENV NGINX_VERSION=1.17.6
+ENV NGINX_VERSION=1.17.7
 ENV NGX_MRUBY_VERSION=2.1.8
 
 RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y \
@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
     --add-dynamic-module=../ngx_mruby/dependence/ngx_devel_kit \
  && make modules
 
-FROM nginx:1.17.6
+FROM nginx:1.17.7
 
 COPY --from=0 /usr/local/src/nginx-$NGINX_VERSION/objs/*.so /etc/nginx/modules/
 COPY nginx.conf /etc/nginx/nginx.conf
