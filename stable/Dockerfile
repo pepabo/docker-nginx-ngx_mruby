@@ -1,4 +1,4 @@
-FROM nginx:1.20.1
+FROM nginx:1.20.2
 
 ENV NGX_MRUBY_VERSION 2.2.3
 
@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
     --add-dynamic-module=../ngx_mruby/dependence/ngx_devel_kit \
  && make modules
 
-FROM nginx:1.20.1
+FROM nginx:1.20.2
 
 ENV NGX_MRUBY_VERSION 2.2.3
 
