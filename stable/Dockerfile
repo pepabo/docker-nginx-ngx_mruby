@@ -1,6 +1,6 @@
 FROM nginx:1.20.2
 
-ENV NGX_MRUBY_VERSION 2.2.3
+ENV NGX_MRUBY_VERSION 2.2.4
 
 COPY build_config.rb /tmp/
 
@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
 
 FROM nginx:1.20.2
 
-ENV NGX_MRUBY_VERSION 2.2.3
+ENV NGX_MRUBY_VERSION 2.2.4
 
 COPY --from=0 /usr/local/src/nginx-$NGINX_VERSION/objs/*.so /etc/nginx/modules/
 COPY nginx.conf /etc/nginx/nginx.conf
