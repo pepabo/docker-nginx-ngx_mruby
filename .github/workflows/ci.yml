@@ -18,6 +18,6 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file ${{ matrix.version }}/Dockerfile --tag my-image-name:$(date +%s)
