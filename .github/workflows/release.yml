@@ -37,6 +37,11 @@ jobs:
           flavor: |
             latest=${{ steps.version.outputs.result == 'mainline' }}
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: arm64
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
