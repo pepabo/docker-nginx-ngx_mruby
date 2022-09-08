@@ -1,6 +1,6 @@
 FROM nginx:1.23.0
 
-ENV NGX_MRUBY_VERSION 2.2.4
+ENV NGX_MRUBY_VERSION 2.2.5
 
 COPY build_config.rb /tmp/
 
