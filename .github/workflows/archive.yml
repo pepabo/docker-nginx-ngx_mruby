@@ -54,5 +54,5 @@ jobs:
           context: .
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
-          push: false
+          push: true
           tags: ghcr.io/pepabo/nginx-ngx_mruby:${{ matrix.version }}
