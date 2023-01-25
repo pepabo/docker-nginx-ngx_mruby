@@ -2,22 +2,35 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
 
 jobs:
-
   build:
- 
     runs-on: ubuntu-latest
  
     strategy:
       matrix:
-        version: [mainline, stable]
-
+        version: 
+          - mainline
+          - stable
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file ${{ matrix.version }}/Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: arm64
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./${{ matrix.version }}/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: false
