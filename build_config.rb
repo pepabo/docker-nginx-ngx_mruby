@@ -24,9 +24,7 @@ MRuby::Build.new('host') do |conf|
   conf.gem :github => 'matsumotory/mruby-userdata'
   conf.gem :github => 'matsumotory/mruby-uname'
   conf.gem :github => 'matsumotory/mruby-mutex'
-  # FIXME: Can be removed "checksum_hash" upgraded to mruby 3.2
-  # https://github.com/matsumotory/mruby-localmemcache/issues/8
-  conf.gem :github => 'matsumotory/mruby-localmemcache', :checksum_hash => 'ae9e0f0816a7610a1237e86ad18db01d1459498b'
+  conf.gem :github => 'matsumotory/mruby-localmemcache'
   conf.gem :mgem => 'mruby-secure-random'
 
   # ngx_mruby extended class
